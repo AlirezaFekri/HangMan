@@ -229,21 +229,21 @@ const image = document.getElementById("image");
 let randomSelected = "";
 let wrongType = 1;
 
+document.addEventListener("keypress", hoverKey);
 document.addEventListener("keyup", usedByKey);
 document.addEventListener("keyup", validateAnswer);
-document.addEventListener("keypress", hoverKey);
 letter.addEventListener("click", usedByClick);
 
 function usedByKey(event) {
-    const key = String(event.key);
+    const key = event.key;
     const keypressed = document.getElementById(key.toUpperCase());
-    keypressed.classList.value = "";
 
+    keypressed.classList.remove("press");
     if (event.keyCode >= 65 && event.keyCode <= 90 && !validateAnswer()) {
         if (keypressed.classList.value === "used") {
             event.preventDefault();
         } else {
-            keyValid(String(key).toUpperCase());
+            keyValid(keypressed.innerText);
             keypressed.classList.add("used");
         }
         if (validateAnswer()) {
