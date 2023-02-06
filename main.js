@@ -229,8 +229,6 @@ const image = document.getElementById("image");
 let randomSelected = "";
 let wrongType = 1;
 
-console.log(randomSelected)
-
 document.addEventListener("keyup", usedByKey);
 document.addEventListener("keyup", validateAnswer);
 document.addEventListener("keypress", hoverKey);
@@ -240,8 +238,7 @@ function usedByKey(event) {
     const key = String(event.key);
     const keypressed = document.getElementById(key.toUpperCase());
     keypressed.classList.value = "";
-    console.log(event.keyCode >= 65 && event.keyCode <= 90 && !validateAnswer())
-    // console.log(resetGame())
+
     if (event.keyCode >= 65 && event.keyCode <= 90 && !validateAnswer()) {
         if (keypressed.classList.value === "used") {
             event.preventDefault();
